@@ -1,0 +1,2 @@
+module AccountInputEventsHelper
+end

@@ -1,0 +1,23 @@
+<%= simple_form_for(@product) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :bar_code %>
+    <%= f.input :cost_price %>
+    <%= f.input :sell_price %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, :class => 'btn btn-primary' %>
+  </div>
+<% end %>
+<script type="text/javascript" charset="utf-8">
+	$('#product_bar_code').keypress(function(e){
+		if(e.keyCode == 13) {
+			$('#product_cost_price').focus();
+			return false;
+		}
+	});
+</script>

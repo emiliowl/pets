@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Account:</b>
+  <%= @account_input_event.account %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @account_input_event.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_account_input_event_path(@account_input_event) %> |
+<%= link_to 'Back', account_input_events_path %>

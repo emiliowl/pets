@@ -1,0 +1,23 @@
+<p>
+  <b>User:</b>
+  <%= @sell.user.name %>
+</p>
+
+<p>
+  <b>Products:</b>
+	<ul>
+  <% @sell.item_solds.each do |p| %>
+		<li><%= p.product.name %></li>
+		<li><%= p.value %></li>
+	<% end %>
+	</ul>
+</p>
+
+<p>
+  <b>Payment options:</b>
+  <%= @sell.payment_options %>
+</p>
+
+
+<%= link_to 'Edit', edit_sell_path(@sell) %> |
+<%= link_to 'Back', sells_path %>

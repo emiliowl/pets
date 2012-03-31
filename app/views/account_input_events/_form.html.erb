@@ -1,0 +1,12 @@
+<%= simple_form_for(@account_input_event) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.association :account %>
+    <%= f.input :value %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, :class => 'btn btn-primary' %>
+  </div>
+<% end %>

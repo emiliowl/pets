@@ -1,0 +1,54 @@
+<%= simple_form_for(@warehouse_output_event) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.association :product %> or
+		<div class="input string optional" id="bar_code">
+			<label class="string optional" for="product_bar_code"> Bar code</label>
+			<input class="string optional" id="product_bar_code" maxlength="255" name="product[bar_code]" size="50" type="Number"/>
+			<div class="progress progress-danger progress-striped active loading" style="display: none; width: 19%;">
+			  <div class="bar" style="width: 100%;"></div>
+			</div>
+		</div>
+    <%= f.association :store %>
+    <%= f.input :quantity %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, :class => 'btn btn-primary' %>
+  </div>
+<% end %>
+<script type="text/javascript" charset="utf-8">
+	$('#product_bar_code').keypress(function(e) {
+	    if(e.keyCode == 13) {
+				//ajax call to retrieve json data from product with bar_code
+				if( $('#product_bar_code').val() ) {
+					$('#product_bar_code').hide();
+					$('.loading').show();
+					$('#bar_code').removeClass("field_with_errors");
+					$('span').remove();
+					$.getJSON("/products/" + $('#product_bar_code').val() + ".json",
+					  {},
+					  function(json) {
+							$('#warehouse_output_event_product_id').val(json.id);
+						}
+					).success(function() {
+								$('#bar_code').removeClass("field_with_errors");
+								$('span').remove();
+								$('#warehouse_output_event_store_id').focus();
+						})
+					 .error(function() {
+							$('#bar_code').addClass("field_with_errors");
+							$('#bar_code').append("<span id='bar_code_error' class='error'>c&oacute;digo de barras inv&aacute;lido</span>");
+							$('#warehouse_output_event_product_id').val('');
+						})
+					 .complete(function() { 
+							$('.loading').hide();
+							$('#product_bar_code').show();
+						});
+				}
+				return false;
+  		}
+	});
+	$('#product_bar_code').focus();
+</script>

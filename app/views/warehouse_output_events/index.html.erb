@@ -1,0 +1,21 @@
+<h1>Listing warehouse_output_events</h1>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>Product</th>
+    <th>Store</th>
+    <th>Quantity</th>
+  </tr>
+
+<% @warehouse_output_events.each do |warehouse_output_event| %>
+  <tr>
+    <td><%= warehouse_output_event.product.name %></td>
+    <td><%= warehouse_output_event.store.name %></td>
+    <td><%= warehouse_output_event.quantity %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Warehouse output event', new_warehouse_output_event_path %>

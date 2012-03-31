@@ -1,0 +1,19 @@
+<h1>Listing account_input_events</h1>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>Account</th>
+    <th>Value</th>
+  </tr>
+
+<% @account_input_events.each do |account_input_event| %>
+  <tr>
+    <td><%= account_input_event.account.name %></td>
+    <td><%= account_input_event.value %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Account input event', new_account_input_event_path %>

@@ -1,0 +1,2 @@
+module AccountOutputEventsHelper
+end

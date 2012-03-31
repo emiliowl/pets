@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @warehouse_input_event.product %>
+</p>
+
+<p>
+  <b>Store:</b>
+  <%= @warehouse_input_event.store %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @warehouse_input_event.quantity %>
+</p>
+
+
+<%= link_to 'Edit', edit_warehouse_input_event_path(@warehouse_input_event) %> |
+<%= link_to 'Back', warehouse_input_events_path %>

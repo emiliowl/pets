@@ -1,0 +1,12 @@
+<%= simple_form_for(@store) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :name %>
+    <%= f.association :company %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, :class => 'btn btn-primary' %>
+  </div>
+<% end %>

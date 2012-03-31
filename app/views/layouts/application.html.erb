@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pets</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <style>
+    body {
+      padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    }
+  </style>
+</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+	  <div class="navbar-inner">
+     <div class="container">
+       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </a>
+       <a class="brand" href="#">PETS</a>
+       <div class="nav-collapse">
+         <ul class="nav">
+           <li><%= link_to "Stores", :controller => "/stores", :action => "index" %></li>
+           <li><%= link_to "Products", :controller => "/products", :action => "index" %></li>
+           <li><%= link_to "Users", :controller => "/users", :action => "index" %></li>
+           <li><%= link_to "Warehouse Input", :controller => "/warehouse_input_events", :action => "index" %></li>
+           <li><%= link_to "Warehouse Output", :controller => "/warehouse_output_events", :action => "index" %></li>
+					 <li><%= link_to "Accounts", :controller => "/accounts", :action => "index" %></li>
+           <li><%= link_to "Account Input", :controller => "/account_input_events", :action => "index" %></li>
+           <li><%= link_to "Account Output", :controller => "/account_output_events", :action => "index" %></li>
+         </ul>
+       </div><!--/.nav-collapse -->
+     </div>
+    </div>
+  </div>
+	<div class="container">
+		<% if notice.present? %>
+			<p class="alert alert-success"><%= notice %></p>
+		<% end %>
+		<% if alert.present? %>
+		<p class="alert alert-error"><%= alert %></p>
+		<% end %>
+		<%= yield %>
+	</div>
+</body>
+</html>

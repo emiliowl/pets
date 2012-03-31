@@ -1,0 +1,19 @@
+<h1>Listing accounts</h1>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>Store</th>
+    <th>Balance</th>
+    <th>Type</th>
+  </tr>
+
+<% @accounts.each do |account| %>
+  <tr>
+    <td><%= account.store.name %></td>
+    <td><%= account.balance %></td>
+    <td><%= account.type %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
